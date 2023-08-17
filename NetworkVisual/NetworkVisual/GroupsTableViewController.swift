@@ -16,17 +16,24 @@ final class GroupsTableViewController: UITableViewController {
         NetworkService().getGroups()
     }
 
-    override func numberOfSections(in _: UITableView) -> Int {
-        1
-    }
+    // ЗАКОММЕНТИРОВАНО ПО СРАВНЕНИЮ С КОДОМ ИЗ ДОМАШНЕГО ЗАДАНИЯ ПРЕДЫДЙЩЕГО СЕМИНАРА
+    //
+    // нам необходимо отображать только одну секцию
+    // если не задавать эту функцию, то уже существующая по умолчанию реализация в UIKit
+    // возвращает как раз единицу и поэтому отдельно реалтзовывать функцию, возвращающую
+    // единицу, нам не требуется.
+    //
+    // override func numberOfSections(in _: UITableView) -> Int {
+    //     1
+    // }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         5
     }
 
     override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myGroupCell = MyGroupCell()
-        myGroupCell.groupNumber(number: indexPath.item)
-        return myGroupCell
+        let groupCell = GroupCell()
+        groupCell.groupNumber(number: indexPath.item)
+        return groupCell
     }
 }

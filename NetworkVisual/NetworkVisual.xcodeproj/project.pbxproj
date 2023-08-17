@@ -17,10 +17,9 @@
 		B9C76A172A8BD421003BEDB2 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A132A8BD420003BEDB2 /* FriendsTableViewController.swift */; };
 		B9C76A212A8BD445003BEDB2 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A192A8BD444003BEDB2 /* PhotosCollectionViewController.swift */; };
 		B9C76A222A8BD445003BEDB2 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1A2A8BD444003BEDB2 /* PhotosModel.swift */; };
-		B9C76A242A8BD445003BEDB2 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1C2A8BD444003BEDB2 /* MyTabBarController.swift */; };
-		B9C76A252A8BD445003BEDB2 /* MyFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1D2A8BD444003BEDB2 /* MyFriendCell.swift */; };
-		B9C76A262A8BD445003BEDB2 /* MyGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1E2A8BD444003BEDB2 /* MyGroupCell.swift */; };
-		B9C76A272A8BD445003BEDB2 /* MyPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1F2A8BD444003BEDB2 /* MyPhotoCell.swift */; };
+		B9C76A252A8BD445003BEDB2 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1D2A8BD444003BEDB2 /* FriendCell.swift */; };
+		B9C76A262A8BD445003BEDB2 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1E2A8BD444003BEDB2 /* GroupCell.swift */; };
+		B9C76A272A8BD445003BEDB2 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A1F2A8BD444003BEDB2 /* PhotoCell.swift */; };
 		B9C76A282A8BD445003BEDB2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A202A8BD445003BEDB2 /* NetworkService.swift */; };
 		B9C76A2D2A8BD508003BEDB2 /* GroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A2B2A8BD508003BEDB2 /* GroupsModel.swift */; };
 		B9C76A2E2A8BD508003BEDB2 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C76A2C2A8BD508003BEDB2 /* GroupsTableViewController.swift */; };
@@ -39,10 +38,9 @@
 		B9C76A132A8BD420003BEDB2 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		B9C76A192A8BD444003BEDB2 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		B9C76A1A2A8BD444003BEDB2 /* PhotosModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
-		B9C76A1C2A8BD444003BEDB2 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
-		B9C76A1D2A8BD444003BEDB2 /* MyFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendCell.swift; sourceTree = "<group>"; };
-		B9C76A1E2A8BD444003BEDB2 /* MyGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupCell.swift; sourceTree = "<group>"; };
-		B9C76A1F2A8BD444003BEDB2 /* MyPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPhotoCell.swift; sourceTree = "<group>"; };
+		B9C76A1D2A8BD444003BEDB2 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		B9C76A1E2A8BD444003BEDB2 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		B9C76A1F2A8BD444003BEDB2 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		B9C76A202A8BD445003BEDB2 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B9C76A2B2A8BD508003BEDB2 /* GroupsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsModel.swift; sourceTree = "<group>"; };
 		B9C76A2C2A8BD508003BEDB2 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +78,9 @@
 			children = (
 				B9C76A2B2A8BD508003BEDB2 /* GroupsModel.swift */,
 				B9C76A2C2A8BD508003BEDB2 /* GroupsTableViewController.swift */,
-				B9C76A1D2A8BD444003BEDB2 /* MyFriendCell.swift */,
-				B9C76A1E2A8BD444003BEDB2 /* MyGroupCell.swift */,
-				B9C76A1F2A8BD444003BEDB2 /* MyPhotoCell.swift */,
-				B9C76A1C2A8BD444003BEDB2 /* MyTabBarController.swift */,
+				B9C76A1D2A8BD444003BEDB2 /* FriendCell.swift */,
+				B9C76A1E2A8BD444003BEDB2 /* GroupCell.swift */,
+				B9C76A1F2A8BD444003BEDB2 /* PhotoCell.swift */,
 				B9C76A202A8BD445003BEDB2 /* NetworkService.swift */,
 				B9C76A192A8BD444003BEDB2 /* PhotosCollectionViewController.swift */,
 				B9C76A1A2A8BD444003BEDB2 /* PhotosModel.swift */,
@@ -169,13 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C76A272A8BD445003BEDB2 /* MyPhotoCell.swift in Sources */,
+				B9C76A272A8BD445003BEDB2 /* PhotoCell.swift in Sources */,
 				B9C76A2E2A8BD508003BEDB2 /* GroupsTableViewController.swift in Sources */,
 				B9C76A152A8BD421003BEDB2 /* Constants.swift in Sources */,
 				B9C76A142A8BD421003BEDB2 /* AuthorizationViewController.swift in Sources */,
 				B9C76A2D2A8BD508003BEDB2 /* GroupsModel.swift in Sources */,
-				B9C76A262A8BD445003BEDB2 /* MyGroupCell.swift in Sources */,
-				B9C76A242A8BD445003BEDB2 /* MyTabBarController.swift in Sources */,
+				B9C76A262A8BD445003BEDB2 /* GroupCell.swift in Sources */,
 				B9C76A222A8BD445003BEDB2 /* PhotosModel.swift in Sources */,
 				B9C76A162A8BD421003BEDB2 /* FriendsModel.swift in Sources */,
 				B941CA152A8BD05A00D6CD9D /* AppDelegate.swift in Sources */,
@@ -183,7 +179,7 @@
 				B9C76A282A8BD445003BEDB2 /* NetworkService.swift in Sources */,
 				B941CA172A8BD05A00D6CD9D /* SceneDelegate.swift in Sources */,
 				B9C76A212A8BD445003BEDB2 /* PhotosCollectionViewController.swift in Sources */,
-				B9C76A252A8BD445003BEDB2 /* MyFriendCell.swift in Sources */,
+				B9C76A252A8BD445003BEDB2 /* FriendCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

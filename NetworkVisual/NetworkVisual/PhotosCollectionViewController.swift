@@ -16,7 +16,7 @@ final class PhotosCollectionViewController: UICollectionViewController, UICollec
         title = Constants.Titles.PhotosTitle
 
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(MyPhotoCell.self, forCellWithReuseIdentifier: myCellIdentifier)
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: myCellIdentifier)
 
         NetworkService().getPhotos()
     }

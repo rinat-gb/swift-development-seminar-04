@@ -1,5 +1,5 @@
 //
-//  MyPhotoCell.swift
+//  PhotoCell.swift
 //  NetworkVisual
 //
 //  Created by Ринат on 15.08.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MyPhotoCell: UICollectionViewCell {
+final class PhotoCell: UICollectionViewCell {
     private var imageView = UIImageView(image: UIImage(systemName: "person"))
 
     override init(frame: CGRect) {
