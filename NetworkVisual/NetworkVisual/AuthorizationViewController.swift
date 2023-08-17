@@ -19,8 +19,8 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // cliend_id я храню в Info.plist всего проекта поэтому читаю его оттуда
-        // для последующей вставки в URL
+        // cliend_id своего приложения VK я храню в Info.plist всего проекта
+        // и поэтому читаю его оттуда для последующей вставки в URL
         guard let clientID = Bundle.main.object(forInfoDictionaryKey: "ClientID") else {
             // при ошибке чтения cliend_id пишем об ошибке красным цветом и больше ничего не делаем
             let labelView = UILabel()
