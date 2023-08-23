@@ -11,4 +11,10 @@ enum Constants {
         static let GroupsTitle = "Группы"
         static let PhotosTitle = "Фото"
     }
+
+    enum CellNames {
+        static let FriendsCellName = "FriendCell"
+        static let GroupsCellName: String = "GroupCell"
+        static let PhotosCellName: String = "PhotoCell"
+    }
 }

@@ -8,29 +8,34 @@
 import UIKit
 
 final class PhotosCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    private let myCellIdentifier: String = "MyPhotoCell"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = Constants.Titles.PhotosTitle
 
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: myCellIdentifier)
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.CellNames.PhotosCellName)
 
         NetworkService().getPhotos()
     }
 
-    override func numberOfSections(in _: UICollectionView) -> Int {
-        1
-    }
+    // ЗАКОММЕНТИРОВАНО ПО СРАВНЕНИЮ С КОДОМ ИЗ ДОМАШНЕГО ЗАДАНИЯ ПРЕДЫДУЩЕГО СЕМИНАРА
+    //
+    // нам необходимо отображать только одну секцию
+    // если не задавать эту функцию, то уже существующая по умолчанию реализация в UIKit
+    // возвращает как раз единицу и поэтому отдельно реалтзовывать функцию, возвращающую
+    // единицу, нам не требуется.
+    //
+    // override func numberOfSections(in _: UICollectionView) -> Int {
+    //     1
+    // }
 
     override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         6
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: myCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellNames.PhotosCellName, for: indexPath)
         return cell
     }
 

@@ -8,6 +8,10 @@
 import UIKit
 
 final class GroupCell: UITableViewCell {
+//    private var imageView: UIImageView?
+//    private var nameView: UILabel?
+//    private var descriptionView: UILabel?
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear

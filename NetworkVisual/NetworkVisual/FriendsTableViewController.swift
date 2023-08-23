@@ -8,6 +8,8 @@
 import UIKit
 
 final class FriendTableViewController: UITableViewController {
+    private var friends: FriendsModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -16,7 +18,7 @@ final class FriendTableViewController: UITableViewController {
         NetworkService().getFiends()
     }
 
-    // ЗАКОММЕНТИРОВАНО ПО СРАВНЕНИЮ С КОДОМ ИЗ ДОМАШНЕГО ЗАДАНИЯ ПРЕДЫДЙЩЕГО СЕМИНАРА
+    // ЗАКОММЕНТИРОВАНО ПО СРАВНЕНИЮ С КОДОМ ИЗ ДОМАШНЕГО ЗАДАНИЯ ПРЕДЫДУЩЕГО СЕМИНАРА
     //
     // нам необходимо отображать только одну секцию
     // если не задавать эту функцию, то уже существующая по умолчанию реализация в UIKit
@@ -28,12 +30,11 @@ final class FriendTableViewController: UITableViewController {
     // }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        5
+        return friends?.response.count ?? 0
     }
 
     override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let friendCell = FriendCell()
-        friendCell.friendNumber(number: indexPath.item)
         return friendCell
     }
 }
