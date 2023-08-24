@@ -8,17 +8,15 @@
 import UIKit
 
 final class FriendCell: UITableViewCell {
-    private var statusImageView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.layer.cornerRadius = 25
-        return view
-    }()
-
     private var statusTextView: UILabel = {
         let label = UILabel()
-        label.text = "UNKNOWN"
-        label.textColor = .black
+        label.text = Constants.FriendStatus.offlineStatusText
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = .red
+        label.layer.borderWidth = 2
+        label.layer.cornerRadius = 8
+        label.layer.masksToBounds = true
         return label
     }()
 
@@ -26,7 +24,7 @@ final class FriendCell: UITableViewCell {
 
     private var nameView: UILabel = {
         let label = UILabel()
-        label.text = "UNKNOWN"
+        label.text = Constants.NoNames.friendNoNameText
         label.textColor = .black
         return label
     }()
@@ -45,35 +43,61 @@ final class FriendCell: UITableViewCell {
     }
 
     func setupViews() {
-        contentView.addSubview(statusImageView)
         contentView.addSubview(statusTextView)
         contentView.addSubview(photoView)
         contentView.addSubview(nameView)
     }
 
     func setupConstraints() {
-        statusImageView.translatesAutoresizingMaskIntoConstraints = false
         statusTextView.translatesAutoresizingMaskIntoConstraints = false
         photoView.translatesAutoresizingMaskIntoConstraints = false
         nameView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            statusImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            statusImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-//            statusImageView.widthAnchor.constraint(equalTo: friendImageView.heightAnchor),
-            statusImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-/*
-            friendImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            friendImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            friendImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            friendImageView.widthAnchor.constraint(equalTo: friendImageView.heightAnchor),
-            friendImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            statusTextView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            statusTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
 
-            text.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            text.leadingAnchor.constraint(equalTo: friendImageView.trailingAnchor, constant: 10),
-            text.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
-*/
+            photoView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            photoView.topAnchor.constraint(equalTo: statusTextView.bottomAnchor, constant: 5),
+            photoView.widthAnchor.constraint(equalToConstant: 70),
+            photoView.heightAnchor.constraint(equalTo: photoView.widthAnchor),
+
+            nameView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            nameView.topAnchor.constraint(equalTo: photoView.bottomAnchor, constant: 5),
+            nameView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
         ])
+    }
 
+    func update(friend: Friend) {
+        if friend.online == 0 {
+            statusTextView.text = Constants.FriendStatus.offlineStatusText
+            statusTextView.textColor = .white
+            statusTextView.backgroundColor = .red
+        } else {
+            statusTextView.text = Constants.FriendStatus.onlineStatusText
+            statusTextView.textColor = .black
+            statusTextView.backgroundColor = .green
+        }
+
+        let firstName = friend.firstName ?? ""
+        let lastName = friend.lastName ?? ""
+
+        if firstName.isEmpty && lastName.isEmpty {
+            nameView.text = Constants.NoNames.friendNoNameText
+        } else if !firstName.isEmpty && !lastName.isEmpty {
+            nameView.text = firstName + " " + lastName
+        } else if !firstName.isEmpty && lastName.isEmpty {
+            nameView.text = firstName
+        } else {
+            nameView.text = lastName
+        }
+
+        DispatchQueue.global().async {
+            if let url = URL(string: friend.photo ?? ""), let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.photoView.image = UIImage(data: data)
+                }
+            }
+        }
     }
 }

@@ -76,23 +76,23 @@
 		B941CA132A8BD05A00D6CD9D /* NetworkVisual */ = {
 			isa = PBXGroup;
 			children = (
-				B9C76A2B2A8BD508003BEDB2 /* GroupsModel.swift */,
-				B9C76A2C2A8BD508003BEDB2 /* GroupsTableViewController.swift */,
-				B9C76A1D2A8BD444003BEDB2 /* FriendCell.swift */,
-				B9C76A1E2A8BD444003BEDB2 /* GroupCell.swift */,
-				B9C76A1F2A8BD444003BEDB2 /* PhotoCell.swift */,
-				B9C76A202A8BD445003BEDB2 /* NetworkService.swift */,
-				B9C76A192A8BD444003BEDB2 /* PhotosCollectionViewController.swift */,
-				B9C76A1A2A8BD444003BEDB2 /* PhotosModel.swift */,
+				B941CA222A8BD05C00D6CD9D /* Info.plist */,
+				B941CA142A8BD05A00D6CD9D /* AppDelegate.swift */,
 				B9C76A102A8BD420003BEDB2 /* AuthorizationViewController.swift */,
 				B9C76A112A8BD420003BEDB2 /* Constants.swift */,
+				B9C76A1D2A8BD444003BEDB2 /* FriendCell.swift */,
 				B9C76A122A8BD420003BEDB2 /* FriendsModel.swift */,
 				B9C76A132A8BD420003BEDB2 /* FriendsTableViewController.swift */,
-				B941CA142A8BD05A00D6CD9D /* AppDelegate.swift */,
+				B9C76A1E2A8BD444003BEDB2 /* GroupCell.swift */,
+				B9C76A2B2A8BD508003BEDB2 /* GroupsModel.swift */,
+				B9C76A2C2A8BD508003BEDB2 /* GroupsTableViewController.swift */,
+				B9C76A202A8BD445003BEDB2 /* NetworkService.swift */,
+				B9C76A1F2A8BD444003BEDB2 /* PhotoCell.swift */,
+				B9C76A192A8BD444003BEDB2 /* PhotosCollectionViewController.swift */,
+				B9C76A1A2A8BD444003BEDB2 /* PhotosModel.swift */,
 				B941CA162A8BD05A00D6CD9D /* SceneDelegate.swift */,
 				B941CA1D2A8BD05C00D6CD9D /* Assets.xcassets */,
 				B941CA1F2A8BD05C00D6CD9D /* LaunchScreen.storyboard */,
-				B941CA222A8BD05C00D6CD9D /* Info.plist */,
 			);
 			path = NetworkVisual;
 			sourceTree = "<group>";

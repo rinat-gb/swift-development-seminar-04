@@ -8,15 +8,30 @@
 import UIKit
 
 final class PhotosCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    private var photosModel: PhotosModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = Constants.Titles.PhotosTitle
+        title = Constants.Titles.photosTitle
 
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.CellNames.PhotosCellName)
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.CellNames.photosCellName)
 
-        NetworkService().getPhotos()
+        NetworkService().getPhotos { [weak self] photosModel in
+            if photosModel.response?.count == 0 {
+                // а нету никаких фотографий! меняем заголовое на "Нет фото"
+                DispatchQueue.main.async {
+                    self?.title = Constants.TitlesNoItems.photosTitle
+                }
+            } else {
+                self?.photosModel = photosModel
+
+                DispatchQueue.main.async {
+                    self?.collectionView.reloadData()
+                }
+            }
+        }
     }
 
     // ЗАКОММЕНТИРОВАНО ПО СРАВНЕНИЮ С КОДОМ ИЗ ДОМАШНЕГО ЗАДАНИЯ ПРЕДЫДУЩЕГО СЕМИНАРА
@@ -31,12 +46,19 @@ final class PhotosCollectionViewController: UICollectionViewController, UICollec
     // }
 
     override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        6
+        return photosModel?.response?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellNames.PhotosCellName, for: indexPath)
-        return cell
+        guard let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellNames.photosCellName, for: indexPath) as? PhotoCell
+        else {
+            return UICollectionViewCell()
+        }
+        guard let photo = photosModel?.response?.items?[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        photoCell.update(photo: photo)
+        return photoCell
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {

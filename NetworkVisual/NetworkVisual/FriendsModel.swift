@@ -6,7 +6,7 @@
 //
 
 struct FriendsModel: Codable {
-    var response: FriendsResponse
+    var response: FriendsResponse?
 }
 
 struct FriendsResponse: Codable {

@@ -17,13 +17,13 @@ struct GroupsResponse: Codable {
 struct Group: Codable {
     var id: Int
     var name: String?
-    var membersCount: Int
+    var description: String?
     var photo: String?
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case membersCount = "members_count"
+        case description
         case photo = "photo_50"
     }
 }

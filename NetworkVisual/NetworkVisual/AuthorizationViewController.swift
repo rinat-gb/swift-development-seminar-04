@@ -93,14 +93,14 @@ class AuthorizationViewController: UIViewController, WKNavigationDelegate {
 
     func enterTabViewTap() {
         let friendsVC = UINavigationController(rootViewController: FriendTableViewController())
-        friendsVC.tabBarItem.title = Constants.Titles.FriendsTitle
+        friendsVC.tabBarItem.title = Constants.Titles.friendsTitle
 
         let groupsVC = UINavigationController(rootViewController: GroupsTableViewController())
-        groupsVC.tabBarItem.title = Constants.Titles.GroupsTitle
+        groupsVC.tabBarItem.title = Constants.Titles.groupsTitle
 
         let photoVC = UINavigationController(rootViewController:
             PhotosCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout()))
-        photoVC.tabBarItem.title = Constants.Titles.PhotosTitle
+        photoVC.tabBarItem.title = Constants.Titles.photosTitle
 
         let tabsControllers = [friendsVC, groupsVC, photoVC]
         let tabBarVC = UITabBarController()

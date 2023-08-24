@@ -8,14 +8,28 @@
 import UIKit
 
 final class FriendTableViewController: UITableViewController {
-    private var friends: FriendsModel?
+    private var friendsModel: FriendsModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = Constants.Titles.FriendsTitle
+        title = Constants.Titles.friendsTitle
+        tableView.register(FriendCell.self, forCellReuseIdentifier: Constants.CellNames.friendsCellName)
 
-        NetworkService().getFiends()
+        NetworkService().getFiends { [weak self] friendsModel in
+            if friendsModel.response?.count == 0 {
+                // а нету друзей! меняем заголовое на "Нет друзей"
+                DispatchQueue.main.async {
+                    self?.title = Constants.TitlesNoItems.friendsTitle
+                }
+            } else {
+                self?.friendsModel = friendsModel
+
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // ЗАКОММЕНТИРОВАНО ПО СРАВНЕНИЮ С КОДОМ ИЗ ДОМАШНЕГО ЗАДАНИЯ ПРЕДЫДУЩЕГО СЕМИНАРА
@@ -30,11 +44,19 @@ final class FriendTableViewController: UITableViewController {
     // }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return friends?.response.count ?? 0
+        return friendsModel?.response?.count ?? 0
     }
 
     override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let friendCell = FriendCell()
+        guard let friendCell =
+            tableView.dequeueReusableCell(withIdentifier: Constants.CellNames.friendsCellName, for: indexPath) as? FriendCell
+        else {
+            return UITableViewCell()
+        }
+        guard let friend = friendsModel?.response?.items?[indexPath.row] else {
+            return UITableViewCell()
+        }
+        friendCell.update(friend: friend)
         return friendCell
     }
 }
